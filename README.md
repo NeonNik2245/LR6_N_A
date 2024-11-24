@@ -135,12 +135,145 @@ git config --global user.email // Позволяет получить задан
 
 #### 3.12 Выполнение отката коммита
 
+Откат комита обозначает отмену одного из зафиксированных изменений (всей пачки, зафиксированной в какой-то момент). Он выполняется при помощи `git revert`. Чтобы отменить последний коммит, нужно выбрать `git revert HEAD`. Здесь HEAD выступает в роли самого последнего коммита, коим и является (точнее, HEAD - ссылка на последний коммит по умолчанию).
+
+![](photo_dir/report_lab_6_46_revert.png?raw=true)
+![](photo_dir/report_lab_6_47_revert.png?raw=true)
+
 #### 3.13 Создание ветки для отчёта
+
+Командой `git branch report` создаётся ветка `report`. При помощи команды `git checkout report` выполняется переключение на неё.
+
+![](photo_dir/report_lab_6_45.png?raw=true)
+
+После выполнения всех изменений ветку можно отправить на удалённый репозиторий командой `git push origin report`. Таким образом, в основном репозитории будет создана ветка.
+
+![](photo_dir/report_lab_6_49.png?raw=true)
+
+Ветка теперь виднеется в GitHub
+
+![](photo_dir/report_lab_6_50.png?raw=true)
 
 #### 3.14 Оформление отчёта в файле README.md
 
+Весь отчёт оформляется в README.md. README - файл, которые зачастую автоматически читается GitHub и выводится на основной странице. Расширение md - формат файла markdown, который обладает своими особенностями и позволяет писать текст с большей настройкой, такой как вставка изображений, подчёркивания или ссылки.
+
 #### 3.14.1 Лог команд
+
+```
+  233  git config user.name
+  234  git config --global user.name "4314 Pahomchik N.A."
+  235  git config user.name
+  236  git config user.email
+  237  cd
+  238  dir
+  239  cd F:
+  240  mkdir lab_6
+  241  cd lab_6
+  242  git clone https://github.com/NeonNik2245/LR6_N_A
+  250  cd LR6_N_A/
+  251  git pull
+  252  git log
+  256  git add -A
+  257  git status
+  258  git commit -m "Add a headers, started working with VS"
+  259  git push origin
+  260  git branch branch_1
+  261  git branch branch_2
+  262  git branch
+  263  git checkout branch_1
+  264  git add .
+  265  git add .
+  267  git checkout branch_1
+  268  git branch branch_2
+  269  git checkout branch_2
+  270  git add .
+  272  git add .
+  273  git status
+  274  git commit -m "No target commit"
+  275  git checkout branch_1
+  276  git add .
+  277  git status
+  278  git add .
+  279  git status
+  280  git commit -m "Commit with target"
+  282  git branch
+  283  git checkout branch_1
+  284  git checkout branch_1
+  285* git checkout
+  286  git checkout branch_1 -f
+  287  git merge branch_1
+  288  git checkout master
+  289  git merge branch_1
+  290  git checkout branch_2
+  291  git checkout master
+  292  git merge branch_2
+  293  git merge branch_2
+  294  git status
+  295  git push origin
+  299  cat > .gitignore.txt
+  300  git add -A
+  301  git commit -m "Added gitignore file"
+  302  git pull origin
+  303  git add -A
+  304  git push origin
+  305  history
+  306  git branch report
+  307  git checkout report
+  308  git add -A
+  309  git commit -m "Добавлен текст в Задания"
+  310  git add .
+  311  git commit -m "Недоделанный коммит"
+  312  git checkout
+  313  git checkout
+  314  git checkout HEAD~1
+  315  git switch -
+  316  git revert HEAD~1
+  317  git revert --abort
+  318  git revert HEAD
+  319  git status
+  320  git status
+  321  git add -A
+  322  git commit "Added photo_dir"
+  323  git commit -m "Added photo_dir"
+  324  git branch
+  325  git branch branch_1 -d
+  326  git branch branch_2 -d
+  327  git branch
+  328  git add -A
+  329  git commit -m "First big part of work"
+  330  git push origin report
+  331  git log
+  332  git history
+  333  history
+```
+
+
 
 #### 3.15 Получение истории операций в форматированном виде
 
+Логи, полученные командой `git log`
+
+```
+fe92013, 2024-11-25 00:03, 4314 Pahomchik N.A., First big part of work
+622fe22, 2024-11-24 21:29, 4314 Pahomchik N.A., Added photo_dir
+ce687e6, 2024-11-24 21:17, 4314 Pahomchik N.A., Revert "Недоделанный коммит"
+63a3bbe, 2024-11-24 21:11, 4314 Pahomchik N.A., Недоделанный коммит
+707f93e, 2024-11-24 21:03, 4314 Pahomchik N.A., Добавлен текст в Задания
+cb1f3f2, 2024-11-24 20:12, 4314 Pahomchik N.A., Take vs_delete commit from master
+9fb6d59, 2024-11-24 20:12, NeonNik2245, Delete .vs directory
+37692c6, 2024-11-24 20:11, 4314 Pahomchik N.A., Added gitignore file
+9100858, 2024-11-24 19:59, 4314 Pahomchik N.A., Merge branch 'branch_2'
+3c263c7, 2024-11-24 19:24, 4314 Pahomchik N.A., Commit with target
+0dc7eda, 2024-11-24 19:21, 4314 Pahomchik N.A., No target commit
+8bf404d, 2024-11-24 19:20, 4314 Pahomchik N.A., Bad commit, no target
+6c8a1de, 2024-11-24 19:03, 4314 Pahomchik N.A., Add a headers, started working with VS
+dca14d2, 2024-11-24 18:30, NeonNik2245, Create my_tasks.md
+921f53b, 2020-11-21 20:09, Kurtyanik, Обновление информации
+c08a654, 2020-11-21 20:02, Kurtyanik, Файл создан пустым
+3c6e913, 2020-11-21 19:58, Kurtyanik, Initial commit
+```
+
 ## Выводы
+
+В процессе работы были более близко рассмотрены работа с файлами markdown, его разметка, работа с git, ветками, коммитами, изменениями и конфликтами слияний. Как работа по изучению Git она демонстрирует хорошие результаты и высокую скорость освоения материала.
